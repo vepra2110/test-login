@@ -1,0 +1,36 @@
+.title {
+  opacity: 0;
+  transform: translateY(10px);
+  /* animation will start automatically on page load */
+  animation-name: title-appear;
+  animation-duration: 1.8s;   /* how long the appear animation takes */
+  animation-delay: 2.2s;        /* wait 2 seconds before starting */
+  animation-fill-mode: forwards; /* keep final state after animation */
+  animation-timing-function: ease-out;
+
+  color: white;
+  font-size: 80px;
+  font-weight: 900;
+  margin-top: 250px;
+}
+
+/* keyframes for fade + slight slide-up */
+@keyframes title-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect user reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .title {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
