@@ -1,6 +1,6 @@
 .title {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(-300px);
   /* animation will start automatically on page load */
   animation-name: title-appear;
   animation-duration: 1.8s;   /* how long the appear animation takes */
@@ -9,7 +9,7 @@
   animation-timing-function: ease-out;
 
   color: white;
-  font-size: 80px;
+  font-size: 100px;
   font-weight: 900;
   margin-top: 250px;
 }
@@ -18,12 +18,18 @@
 @keyframes title-appear {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-300px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-300px);
   }
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 /* Respect user reduced motion preference */

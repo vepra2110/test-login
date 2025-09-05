@@ -29,7 +29,7 @@ export const Experience = () => {
       const targetRotX = mouse.y * 0.125; // vertical tilt
       modelRef.current.rotation.y +=
         (targetRotY - modelRef.current.rotation.y) * 0.1;
-      modelRef.current.rotation.x +=
+      modelRef.current.rotation.x += -0.05 +
         (targetRotX - modelRef.current.rotation.x) * 0.1;
     }
   });
@@ -50,18 +50,44 @@ export const Experience = () => {
     <>
       <group>
         <CameraControls ref={controls} />
-        <group ref={modelRef} position={[0, -2, 0]}>
+        
+        {/* This group rendered the original .gltf model */}
+        {/* <group ref={modelRef} position={[0, -4, 0]}>
           <Space_boi scale={0.8} />
-        </group>
-        {/* <group ref={modelRef} position={[0, 0, 0]}>
-          <Space2 />
         </group> */}
+
+        {/* This group renderes the new compressed model */}
+        <group ref={modelRef} position={[0, -4, 0]} >
+          <Space2 scale={0.8} rot/>
+        </group>
+
+        {/* This component takes care of lighting */}
         <Environment preset="sunset" />
       </group>
 
-      <Html center style={{ pointerEvents: "none", whiteSpace: "nowrap" }}>
-        <div className={style.title}>NSSC 2025</div>
+      {/* pointerEvents: "none", */}
+
+      <Html center style={{ 
+        whiteSpace: "nowrap"
+        }}>
+        <div style={{
+          margin:'0',
+          padding:'0',
+          width: "100%",
+          height: "100%",
+          display:"flex",
+          flexDirection:"column"
+        }}>
+          <div className={style.title}>NSSC 2025</div>
+          <div style={{fontSize: '50px'}}>Celestia Anveshna</div>
+        </div>
+
+        <div className={style.buttonContainer}>
+          <button>Explore</button>
+          <button>Register</button>
+        </div>
       </Html>
+
 
       {/* <Text
         color={"white"}
